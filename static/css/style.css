@@ -1136,6 +1136,7 @@ footer .footer-copy { margin-top: 1rem; font-size: .78rem; color: var(--text-mut
   .stats-grid { grid-template-columns: 1fr 1fr; }
   section { padding: 3.5rem 1.25rem; }
   .hero-title { font-size: 2.2rem; }
+  #typed-text { font-size: .8rem; letter-spacing: 1px; white-space: nowrap; overflow: hidden; }
   .btn { padding: .7rem 1.5rem; font-size: .9rem; }
   .section-title { font-size: 1.8rem; }
   .stat-num { font-size: 2rem; }
@@ -1205,6 +1206,11 @@ footer .footer-copy { margin-top: 1rem; font-size: .78rem; color: var(--text-mut
 @media (max-width: 420px) {
   .social-btn {
     flex: 1 1 100%;
+  }
+
+  #typed-text {
+    font-size: .75rem;
+    letter-spacing: .8px;
   }
 
   .hero-title {
