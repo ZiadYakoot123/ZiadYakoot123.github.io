@@ -1135,7 +1135,7 @@ footer .footer-copy { margin-top: 1rem; font-size: .78rem; color: var(--text-mut
   .language-toggle { white-space: nowrap; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   section { padding: 3.5rem 1.25rem; }
-  .hero-title { font-size: 2.2rem; }
+  .hero-title { font-size: 2.2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; }
   #typed-text { font-size: .8rem; letter-spacing: 1px; white-space: nowrap; overflow: hidden; }
   .btn { padding: .7rem 1.5rem; font-size: .9rem; }
   .section-title { font-size: 1.8rem; }
@@ -1216,6 +1216,9 @@ footer .footer-copy { margin-top: 1rem; font-size: .78rem; color: var(--text-mut
   .hero-title {
     font-size: 1.85rem;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   #typed-text {
