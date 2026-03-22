@@ -11,7 +11,7 @@ const translations = {
     // Hero Section
     'hero-title': "Hi, I'm Ziad Yakoot",
     'hero-subtitle': 'AI Engineer & Embedded Systems Developer',
-    'hire-btn': 'Hire Me',
+    'hire-btn': 'Contact Me',
     'projects-btn': 'View Projects',
     
     // About Section
@@ -75,7 +75,7 @@ const translations = {
     // Hero Section
     'hero-title': 'مرحبا، أنا زياد ياقوت',
     'hero-subtitle': 'مهندس ذكاء اصطناعي ومطور الأنظمة المدمجة',
-    'hire-btn': 'وظفني',
+    'hire-btn': 'تواصل معي',
     'projects-btn': 'عرض المشاريع',
     
     // About Section
@@ -125,7 +125,7 @@ const translations = {
     // Contact Section
     'contact-tag': 'تواصل معي',
     'contact-title': 'اتصل بي',
-    'contact-desc': 'هل لديك مشروع في الذاكرة؟ دعونا نبني شيئاً رائعاً معاً.',
+    'contact-desc': 'هل لديك فكرة مشروع؟ دعنا نبنِ شيئاً رائعاً معاً.',
     'work-together': 'دعنا نعمل معاً',
   }
 };

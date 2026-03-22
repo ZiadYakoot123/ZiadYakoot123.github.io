@@ -71,10 +71,10 @@
     </div>
 
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary" data-en="Hire Me" data-ar="وظفني">
-        <i class="bx bx-send"></i> Hire Me
+      <a href="#contact" class="btn btn-primary magnetic" data-en="Contact Me" data-ar="تواصل معي">
+        <i class="bx bx-send"></i> Contact Me
       </a>
-      <a href="#projects" class="btn btn-outline" data-en="View Projects" data-ar="عرض المشاريع">
+      <a href="#projects" class="btn btn-outline magnetic" data-en="View Projects" data-ar="عرض المشاريع">
         <i class="bx bx-code-alt"></i> View Projects
       </a>
     </div>
@@ -107,10 +107,9 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <h3 data-en="Building the Future, One AI at a Time" data-ar="بناء المستقبل، ذكاء اصطناعي تلو الآخر">Building the Future, One AI at a Time</h3>
-        <p>
+        <p data-en="I'm an AI &amp; Embedded Systems engineer specialising in bringing intelligent solutions to life — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web applications." data-ar="أنا مهندس ذكاء اصطناعي وأنظمة مدمجة، أُحوّل الأفكار الذكية إلى منتجات واقعية؛ من نماذج تعلم عميق مخصصة تعمل على Raspberry Pi إلى تطبيقات ويب متكاملة مدعومة بالذكاء الاصطناعي.">
           I'm an AI &amp; Embedded Systems engineer specialising in bringing intelligent solutions to life
-          — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web
-          applications.
+          — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web applications.
         </p>
         <div class="about-items">
           <div class="about-item">
@@ -420,7 +419,7 @@
     <div class="section-header fade-in">
       <span class="section-tag" data-en="Get In Touch" data-ar="التواصل معي">Get In Touch</span>
       <h2 class="section-title" data-en="Contact Me" data-ar="اتصل بي">Contact Me</h2>
-      <p class="section-desc" data-en="Have a project in mind? Let's build something amazing together." data-ar="هل لديك مشروع في العقل؟ دعنا نبني شيئاً رائعاً معاً.">Have a project in mind? Let's build something amazing together.</p>
+      <p class="section-desc" data-en="Have a project in mind? Let's build something amazing together." data-ar="هل لديك فكرة مشروع؟ دعنا نبنِ شيئًا رائعًا معًا.">Have a project in mind? Let's build something amazing together.</p>
     </div>
 
     <div class="contact-grid">
@@ -465,101 +464,24 @@
         </div>
       </div>
 
-      <!-- Right: form -->
-      <div class="form-card fade-in">
-        <div class="form-tabs">
-          <button class="form-tab active" data-target="panel-service">Request a Service</button>
-          <button class="form-tab" data-target="panel-order">Order a Product</button>
+      <!-- Right: static contact card -->
+      <div class="contact-card fade-in reveal-stagger">
+        <h3 data-en="Prefer direct contact?" data-ar="تفضل التواصل المباشر؟">Prefer direct contact?</h3>
+        <p data-en="This is a static portfolio, so I respond through email and professional platforms only." data-ar="هذا الموقع تعريفي ثابت، لذلك يتم التواصل والرد عبر البريد الإلكتروني والمنصات المهنية فقط.">
+          This is a static portfolio, so I respond through email and professional platforms only.
+        </p>
+        <div class="quick-actions">
+          <a href="mailto:ziadyakout6@gmail.com" class="btn btn-primary magnetic" data-en="Email Me" data-ar="راسلني عبر البريد الإلكتروني">
+            <i class="bx bx-envelope"></i> Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" class="btn btn-outline magnetic" data-en="Message on LinkedIn" data-ar="راسلني على لينكدإن">
+            <i class="bx bxl-linkedin"></i> Message on LinkedIn
+          </a>
         </div>
-
-        <!-- Service Request Form -->
-        <div class="form-panel active" id="panel-service">
-          <form id="service-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="s-name">Full Name *</label>
-                <input type="text" id="s-name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="s-email">Email *</label>
-                <input type="email" id="s-email" name="email" placeholder="you@example.com" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="s-phone">Phone</label>
-                <input type="tel" id="s-phone" name="phone" placeholder="+1 234 567 8900" />
-              </div>
-              <div class="form-group">
-                <label for="s-service">Service *</label>
-                <select id="s-service" name="service" required>
-                  <option value="" disabled selected>Select a service</option>
-                  <option>AI &amp; Machine Learning</option>
-                  <option>Embedded Systems</option>
-                  <option>Healthcare Technology</option>
-                  <option>Full-Stack Development</option>
-                  <option>AI Agents &amp; Automation</option>
-                  <option>Consulting &amp; Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="s-message">Project Details *</label>
-              <textarea id="s-message" name="message" placeholder="Describe your project, goals, and timeline…" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit" data-label="Send Request">
-              <i class="bx bx-send"></i> Send Request
-            </button>
-            <div class="form-message"></div>
-          </form>
-        </div>
-
-        <!-- Product Order Form -->
-        <div class="form-panel" id="panel-order">
-          <form id="order-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="o-name">Full Name *</label>
-                <input type="text" id="o-name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="o-email">Email *</label>
-                <input type="email" id="o-email" name="email" placeholder="you@example.com" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="o-phone">Phone</label>
-                <input type="tel" id="o-phone" name="phone" placeholder="+1 234 567 8900" />
-              </div>
-              <div class="form-group">
-                <label for="o-quantity">Quantity</label>
-                <input type="number" id="o-quantity" name="quantity" value="1" min="1" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="o-product">Product *</label>
-              <select id="o-product" name="product" required>
-                <option value="" disabled selected>Select a product</option>
-                <option>Smart Glasses (AI Vision Assistant)</option>
-                <option>AI Medical Endoscope</option>
-                <option>AI Vein Detection System</option>
-                <option>Custom AI Agent / Chatbot</option>
-                <option>Custom Hardware Prototype</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="o-message">Additional Notes</label>
-              <textarea id="o-message" name="message" placeholder="Specifications, custom requirements, delivery notes…"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit" data-label="Place Order">
-              <i class="bx bx-cart"></i> Place Order
-            </button>
-            <div class="form-message"></div>
-          </form>
-        </div>
-
-      </div><!-- /form-card -->
+        <p class="availability-note" data-en="Available for freelance projects, consulting, and collaborative AI product development." data-ar="متاح لمشاريع العمل الحر، والاستشارات، والتعاون في تطوير منتجات الذكاء الاصطناعي.">
+          Available for freelance projects, consulting, and collaborative AI product development.
+        </p>
+      </div>
     </div><!-- /contact-grid -->
   </div>
 </section>

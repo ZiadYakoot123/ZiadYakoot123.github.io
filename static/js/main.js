@@ -97,7 +97,12 @@ document.getElementById("scroll-top")?.addEventListener("click", () =>
       if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll(".fade-in").forEach(el => obs.observe(el));
+  document.querySelectorAll(".fade-in").forEach((el, i) => {
+    if (el.classList.contains("reveal-stagger")) {
+      el.style.transitionDelay = `${Math.min(i * 70, 420)}ms`;
+    }
+    obs.observe(el);
+  });
 })();
 
 /* =========================================================
@@ -124,67 +129,72 @@ document.getElementById("scroll-top")?.addEventListener("click", () =>
 })();
 
 /* =========================================================
-   Form tabs
+   Hero parallax effect
    ========================================================= */
-(function initTabs() {
-  document.querySelectorAll(".form-tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-      const parent = tab.closest(".form-card");
-      parent.querySelectorAll(".form-tab").forEach(t => t.classList.remove("active"));
-      parent.querySelectorAll(".form-panel").forEach(p => p.classList.remove("active"));
-      tab.classList.add("active");
-      const panel = parent.querySelector("#" + tab.dataset.target);
-      if (panel) panel.classList.add("active");
+(function initHeroParallax() {
+  const hero = document.getElementById("hero");
+  const bg = document.querySelector(".hero-bg");
+  const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!hero || !bg || noMotion || !finePointer) return;
+
+  hero.addEventListener("mousemove", (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    bg.style.transform = `translate(${x * 16}px, ${y * 12}px)`;
+  });
+
+  hero.addEventListener("mouseleave", () => {
+    bg.style.transform = "translate(0, 0)";
+  });
+})();
+
+/* =========================================================
+   Tilt cards
+   ========================================================= */
+(function initTiltCards() {
+  const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (noMotion || !finePointer) return;
+  const targets = document.querySelectorAll(".project-card, .service-card, .stat-card, .contact-card");
+
+  targets.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
     });
   });
 })();
 
 /* =========================================================
-   Form submission
+   Magnetic buttons
    ========================================================= */
-async function submitForm(formId, endpoint) {
-  const form    = document.getElementById(formId);
-  const msgEl   = form.querySelector(".form-message");
-  const btn     = form.querySelector(".form-submit");
+(function initMagneticButtons() {
+  const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (noMotion || !finePointer) return;
+  const buttons = document.querySelectorAll(".magnetic");
 
-  const data = {};
-  new FormData(form).forEach((v, k) => data[k] = v);
-
-  btn.disabled = true;
-  btn.textContent = "Sending…";
-  msgEl.style.display = "none";
-  msgEl.className = "form-message";
-
-  try {
-    const res  = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+  buttons.forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      btn.style.transform = `translate(${x * 8}px, ${y * 6}px)`;
     });
-    const json = await res.json();
-    msgEl.textContent = json.message || json.error;
-    msgEl.classList.add(json.success ? "success" : "error");
-    msgEl.style.display = "block";
-    if (json.success) form.reset();
-  } catch {
-    msgEl.textContent = "Network error – please try again.";
-    msgEl.classList.add("error");
-    msgEl.style.display = "block";
-  } finally {
-    btn.disabled = false;
-    btn.textContent = btn.dataset.label || "Send";
-  }
-}
 
-document.getElementById("service-form")?.addEventListener("submit", e => {
-  e.preventDefault();
-  submitForm("service-form", "/api/contact");
-});
-
-document.getElementById("order-form")?.addEventListener("submit", e => {
-  e.preventDefault();
-  submitForm("order-form", "/api/order");
-});
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+    });
+  });
+})();
 
 /* =========================================================
    Smooth anchor scroll (offset for fixed navbar)
